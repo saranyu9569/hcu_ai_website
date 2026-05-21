@@ -1,0 +1,170 @@
+{
+    "Navigation": {
+      "home": "Home",
+      "newsEvents": "News & Events",
+      "latestNews": "Latest News",
+      "eventsCalendar": "Events Calendar",
+      "academicPrograms": "Academic Programs",
+      "undergraduate": "Degree",
+      "graduate": "Graduate",
+      "courses": "All Courses",
+      "course63": "63 Course",
+      "course68": "68 Course",
+      "shortCourse": "Non-Degree",
+      "aboutDepartment": "About Department",
+      "projectsResearch": "Projects & Research",
+      "studentResources": "Student Resources",
+      "teachersStaff": "Teachers & Staff",
+      "language": "Language",
+      "admission": "Admission"
+    },
+    "UniversityName": {
+      "fullName": "Huachiew Chalermprakiet University",
+      "aiProgram": "Computational Science and Digital Technology"
+    },
+    "newsEvents":{
+      "latestNews": "Latest News",
+      "upcomingEvents": "Upcoming Events",
+      "viewAll": "View All",
+      "readMore": "Read More",
+      "eventDetails": "Event Details"
+    },
+    "news-page":{
+      "title": "News",
+      "sub-title": "Stay informed about the latest developments, achievements, and updates from the Department of Computational Science and Digital Technology at Huachiew Chalermprakiet University.",
+      "search": "Search News",
+      "category": "Categories",
+      "year": "Year",
+      "lastest-news": "Latest News",
+      "sort": "Sort",
+      "newest": "Newest to Oldest",
+      "oldest": "Oldest to Newest"
+    },
+    "event-page":{
+      "title": "Events",
+      "sub-title": "Discover upcoming events, workshops, and activities from the Department of Computing Science and Digital Technology at Huachiew ChalermprakietUniversity.",
+      "search": "Search Events",
+      "category": "Categories",
+      "upcoming": "Upcoming Events",
+      "sort": "เรียงตาม",
+      "newest": "ใหม่ - เก่า",
+      "oldest": "เก่า - ใหม่"
+    },
+    "footer":{
+          "aboutDepartment": "About HCU Computing Science and Digital Technology",
+          "description": "The Department of Computing Science and Digital Technology at Huachiew Chalermprakiet University is dedicated to pioneering research and education in the field of Computing Science and Digital Technology, preparing students for impactful careers in this rapidly evolving industry.",
+          "quickLinks": "Quick Links",
+          "contactUs": "Contact Us",
+          "privacyPolicy": "Privacy Policy",
+          "termsOfService": "Terms of Service",
+          "copyright": "Copyright © HCU Computing Science and Digital Technology. All rights reserved."
+      },
+      "partnership":{
+        "title": "Our Trusted",
+        "partners": "Partners",
+        "description": "We are proud to collaborate with these amazing organizations and companies that share our vision for excellence.",
+        "becomePartner": "Become a Partner with Us"
+      },
+      "banner":{
+        "bannerTitle1": "Shape the Future with AI",
+        "bannerDescription1": "Master the core of tomorrow with our AI & Digital Tech program. Learn to innovate and shape the digital future.",
+        "bannerButton1": "Explore Programs", 
+        "bannerTitle2": "Learning Activity & Skills",
+        "bannerDescription2": "Engage in hands-on projects that build crucial soft skills and technical mastery.  Develop the hard skills for innovation, the soft skills for leadership.",
+        "bannerButton2": "Discover Research",
+        "bannerTitle3": "Industry & Global Connection",
+        "bannerDescription3": "Forge powerful connections through our global network and industry partnerships.  Unlock unparalleled opportunities and launch your career on a global stage.",
+        "bannerButton3": "View Partnerships",
+        "bannerTitle4": "Research Focus - AI for Quality of Life",
+        "bannerDescription4": "Pioneering Research: Developing Co-existent AI for a Better Quality of Life.  Join us in shaping AI that enhances human well-being and societal harmony.",
+        "bannerButton4": "Explore Research Theme",
+        "bannerTitle5": "Further Opportunity",
+        "bannerDescription5": "Beyond the Degree: Cultivate Lifelong Learning for Endless Innovation.  We empower you for a career of continuous growth and impactful contribution.",
+        "bannerButton5": "None Degree Program Offer"
+      },
+      "quote":{
+        "title":"Be the Future: AI Driven by Data, Designed by You.",
+        "description": "In an era where Artificial Intelligence is the driving force behind global innovation and the transformative power reshaping every industry, our Bachelor of Science in AI program equips you with the foundational to advanced knowledge of this essential tool of the future, significantly broadening your opportunities across diverse occupations. Moreover, it offers unparalleled chances for study abroad in leading AI hubs like China and Japan, direct engagement with pioneering companies in the AI industry, and much more, ensuring you are at the forefront of this revolution.",
+        "button": "More"
+      },
+      "aboutDepartment":{
+        "header": "About Our Department",
+        "sub-header":"Shaping the future of Artificial Intelligence through excellence in education, research, and innovation.",
+        "description": "Cultivate students with strong foundational AI knowledge, encompassing core principles and practical operational skills. Empower them to integrate AI across disciplines for academic innovation that enhances quality of life, alongside effective teamwork and communication. Instill strong ethics, social responsibility, and a commitment to continuous self-development and lifelong learning.",
+        "learn-more-Button": "Learn More About Us",
+        "view-button": "View Programs",
+        "member-details": "Faculty Members",
+        "cirriculum": "Total Curriculum",
+        "student-project": "Students Projects",
+        "research-project": "Research Projects",
+        "sub-title":"Our Department at a Glance",
+        "graduate-rate":"Graduate Employment Rate"
+      },
+      "programHighlight":{
+        "program": "Program",
+        "highlight": "Highlight",
+        "view-button": "View All Programs"
+      },
+      "aboutDepartmentPage":{
+        "title": "Beyond the Forefront of the future",
+        "description": "The Department of Computational Science and Digital Technology, nestled within the Faculty of Science and Technology at Huachiew Chalermprakiet University, was established with the ambitious vision of becoming a pioneering innovative center for healthcare and broader societal advancement. This foundational idea resonates deeply with the university's guiding slogan: 'Provide education for learners to become truly knowledgeable, capable of performing real work, have morality, and devote themselves to serving society.' Driven by this commitment, our deep dedication propels us to push the very boundaries of AI, delivering groundbreaking innovative research, fostering exceptional talent through our teaching, and forging impactful industry collaborations that drive tangible real-world change."
+      },
+      "mission-vision":{
+        "mission-title": "Mission",
+        "mission_des": "Cultivate students with strong foundational AI knowledge, encompassing core principles and practical operational skills. Empower them to integrate AI across disciplines for academic innovation that enhances quality of life, alongside effective teamwork and communication. Instill strong ethics, social responsibility, and a commitment to continuous self-development and lifelong learning.",
+        "vision-title": "Vision",
+        "vision-des": "Our program is profoundly committed to cultivating professionals who not only achieve mastery in cutting-edge Artificial Intelligence technologies and advanced computational methods. But also champion their ethical and responsible development, understanding the profound societal impact of their innovations and adhering to strong moral principles. This dual focus ensures they lead the future of AI responsibly, dedicating their expertise to solve complex challenges for the lasting benefit of humanity."
+      
+      },
+      "coreValues":{
+        "title": "Core Values",
+        "card1title": "International Standards",
+        "card1des": "Quality-certified according to AUN-QA standards, ensuring international-level excellence in education, curriculum management, and program outcomes.",
+        "card2title": "Research and Innovation Driven",
+        "card2des": "Cutting-edge research and innovation, driven by expert faculty, cultivate student potential from foundational concepts to real-world application.",
+        "card3title": "Industrial Connection",
+        "card3des": "Robust networks with leading industries and diverse organizations ensure students gain invaluable real-world experience and skills demanded by future job markets.",
+        "card4title": "Social Responsibility",
+        "card4des": "Instilling social responsibility by empowering students to apply AI knowledge in community-based projects, solving local problems and sustainably improving lives.",
+        "card5title": "International Opportunities",
+        "card5des": "Collaborative networks with leading international institutions, particularly in China and Japan, unlock pathways for graduate studies and broader global academic and career opportunities.",
+        "card6title": "AAA for LLL",
+        "card6des": "Accessible AI knowledge is provided for all through tailored short courses and content, fostering continuous lifelong learning for individuals across diverse fields and ages."
+      },
+      "faculty-member":{
+        "teacher-title":"Department Member",
+        "staff-title":"Staff Member"
+      },
+      "facilities":{
+        "title":"Our Facilities"
+      },
+      "undergrad":{
+        "cirriculum-title": "Curriculum Structure",
+        "cirriculum-des": "Our curriculum is carefully designed to build foundational knowledge in mathematics, computer science, and AI while providing opportunities for specialization.",
+        "career-title": "Career Opportunities",
+        "career-des": "Graduates of our AI program are well-prepared for diverse career paths in technology, research, and innovation across multiple industries. Click on careers below to compare their skill requirements."
+      },
+      "admission":{
+        "title": "Admissions",
+        "sub-title": "Join our innovative Bachelor of Science in Artificial Intelligence program and become a leader in the future of technology. Find all the information you need to start your journey with us.",
+        "req": "Requirements"
+      },
+      "project-research":{
+        "title":"Pioneering the Future of AI",
+        "sub-title": "Explore our cutting-edge research, innovative student projects, and impactful publications that are shaping the world of artificial intelligence.",
+        "search-student": "Search Projects",
+        "year": "Filter by Year",
+        "reset": "Reset All Filters",
+        "student-project": "Students Projects Showcase",
+        "research-title": "Our Research Themes",
+        "computer-vision-subtitle": "Developing algorithms to help computers see and understand the world.",
+        "signal-processing-subtitle": "Analyzing and modifying signals like audio, images, and sensor data.",
+        "medical-application-subtitle": "Applying AI to improve diagnostics, treatment, and patient outcomes.",
+        "search-publications": "Search Publications",
+        "publications-title": "Published Research",
+        "area1":"Computer Vision",
+        "area2":"Signal-Processing",
+        "area3":"Medical Application",
+        "view-publication": "View Publication"
+      }
+  }
