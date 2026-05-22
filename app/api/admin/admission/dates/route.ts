@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // GET all important dates
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = await requireAuth(request);
+  if (authError) return authError;
   const rows = await query('SELECT * FROM admission_important_dates WHERE is_active = TRUE ORDER BY sort_order ASC, id ASC');
   return NextResponse.json(rows);
 }
 
 // POST create important date
 export async function POST(req: NextRequest) {
+  const authError = await requireAuth(req);
+  if (authError) return authError;
   const body = await req.json();
   const { round_th, round_en, application_period_th, application_period_en, interview_date_th, interview_date_en, result_date_th, result_date_en, sort_order, is_active } = body;
   const result = await query(
@@ -20,6 +25,8 @@ export async function POST(req: NextRequest) {
 
 // PUT update important date
 export async function PUT(req: NextRequest) {
+  const authError = await requireAuth(req);
+  if (authError) return authError;
   const body = await req.json();
   const { id, round_th, round_en, application_period_th, application_period_en, interview_date_th, interview_date_en, result_date_th, result_date_en, sort_order, is_active } = body;
   await query(
@@ -31,9 +38,11 @@ export async function PUT(req: NextRequest) {
 
 // DELETE important date
 export async function DELETE(req: NextRequest) {
+  const authError = await requireAuth(req);
+  if (authError) return authError;
   const { searchParams } = new URL(req.url);
   const id = searchParams.get('id');
   if (!id) return NextResponse.json({ error: 'Missing id' }, { status: 400 });
   await query('DELETE FROM admission_important_dates WHERE id=?', [id]);
   return NextResponse.json({ message: 'Deleted' });
-} 
+}

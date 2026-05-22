@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 async function getCategoryId(name: string): Promise<number | null> {
   if (!name) return null;
@@ -25,6 +26,8 @@ async function replaceEventTags(eventId: number, tagsStr: string) {
 
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const rows = await query(`
       SELECT e.*,
         cc.name_en AS category,
@@ -48,6 +51,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const { title_th, title_en, content_th, content_en, category, tags, event_date, event_time, location, is_active } = body;
 

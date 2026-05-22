@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const sections = await query('SELECT * FROM admission_section ORDER BY id ASC');
     // ดึง list/dates ทุก section
     for (const section of sections as any[]) {
@@ -20,6 +23,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       title_th, title_en, apply_button_th, apply_button_en,

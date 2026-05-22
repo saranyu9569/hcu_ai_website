@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 async function getCategoryId(name: string): Promise<number | null> {
   if (!name) return null;
@@ -20,6 +21,8 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { id } = await params;
     const body = await request.json();
     const { title_th, title_en, content_th, content_en, image_path, category, publish_date, is_active } = body;
@@ -47,6 +50,8 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { id } = await params;
     await query('DELETE FROM news WHERE id = ?', [id]);
 

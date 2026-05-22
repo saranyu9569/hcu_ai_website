@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { pool, query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // PUT - Update navbar menu item
 export async function PUT(
@@ -7,6 +8,8 @@ export async function PUT(
   context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const params = await context.params;
     const id = parseInt(params.id);
     const body = await request.json();
@@ -32,6 +35,8 @@ export async function DELETE(
   context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const params = await context.params;
     const id = parseInt(params.id);
 

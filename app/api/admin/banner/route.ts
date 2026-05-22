@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const rows = await query(
       'SELECT * FROM banner_slides ORDER BY sort_order ASC, id ASC'
     );
@@ -19,6 +22,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const { title_th, title_en, description_th, description_en, image_path, cta_text_th, cta_text_en, cta_url, sort_order, is_active } = body;
 

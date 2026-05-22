@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const highlights = await query('SELECT * FROM program_highlight ORDER BY id ASC');
     const topics = await query('SELECT * FROM program_highlight_topic');
     const archives = await query('SELECT * FROM program_highlight_archive');
@@ -20,6 +23,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       title_th, title_en, description_th, description_en, image,

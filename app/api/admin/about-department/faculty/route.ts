@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 const safe = (v: any) => v === undefined ? null : v;
 
 // GET - Fetch all faculty members
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const facultyRows = await query(
       'SELECT * FROM about_department_faculty ORDER BY sort_order ASC, id ASC'
     );
@@ -34,6 +37,8 @@ export async function GET(request: NextRequest) {
 // POST - Create new faculty member
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       about_department_id,
@@ -69,6 +74,8 @@ export async function POST(request: NextRequest) {
 // PUT - Update faculty member
 export async function PUT(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       id,
@@ -103,6 +110,8 @@ export async function PUT(request: NextRequest) {
 // DELETE - Delete faculty member
 export async function DELETE(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
 

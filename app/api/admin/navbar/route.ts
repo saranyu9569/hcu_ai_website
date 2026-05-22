@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { pool, query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // GET - Fetch all navbar menu items
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const rows = await query(`
       SELECT * FROM navbar_menu 
       ORDER BY order_index ASC, id ASC
@@ -41,6 +44,8 @@ export async function GET() {
 // POST - Create new navbar menu item
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const { title_th, title_en, url, parent_id, order_index, is_dropdown } = body;
 

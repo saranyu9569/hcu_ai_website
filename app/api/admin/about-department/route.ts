@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // GET - Fetch all about department data for admin
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     // Get all about department records
     const aboutRows = await query(
       'SELECT * FROM about_department ORDER BY id DESC'
@@ -48,6 +51,8 @@ export async function GET(request: NextRequest) {
 // POST - Create new about department record
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       overview_title_th, overview_description_th, overview_title_en, overview_description_en,
@@ -93,6 +98,8 @@ export async function POST(request: NextRequest) {
 // PUT - Update about department record
 export async function PUT(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       id,

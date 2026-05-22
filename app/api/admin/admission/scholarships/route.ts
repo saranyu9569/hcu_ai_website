@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // GET all scholarships
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = await requireAuth(request);
+  if (authError) return authError;
   const rows = await query('SELECT * FROM admission_scholarships WHERE is_active = TRUE ORDER BY id ASC');
   return NextResponse.json(rows);
 }
 
 // POST create scholarship
 export async function POST(req: NextRequest) {
+  const authError = await requireAuth(req);
+  if (authError) return authError;
   const body = await req.json();
   const { title_th, title_en, description_th, description_en, amount, is_active } = body;
   const result = await query(
@@ -20,6 +25,8 @@ export async function POST(req: NextRequest) {
 
 // PUT update scholarship
 export async function PUT(req: NextRequest) {
+  const authError = await requireAuth(req);
+  if (authError) return authError;
   const body = await req.json();
   const { id, title_th, title_en, description_th, description_en, amount, is_active } = body;
   await query(
@@ -31,9 +38,11 @@ export async function PUT(req: NextRequest) {
 
 // DELETE scholarship
 export async function DELETE(req: NextRequest) {
+  const authError = await requireAuth(req);
+  if (authError) return authError;
   const { searchParams } = new URL(req.url);
   const id = searchParams.get('id');
   if (!id) return NextResponse.json({ error: 'Missing id' }, { status: 400 });
   await query('DELETE FROM admission_scholarships WHERE id=?', [id]);
   return NextResponse.json({ message: 'Deleted' });
-} 
+}

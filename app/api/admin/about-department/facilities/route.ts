@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // GET - Fetch all facilities
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const rows = await query(
       'SELECT * FROM about_department_facilities ORDER BY sort_order ASC, id ASC'
     );
@@ -22,6 +25,8 @@ export async function GET(request: NextRequest) {
 // POST - Create new facility
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       about_department_id,
@@ -54,6 +59,8 @@ export async function POST(request: NextRequest) {
 // PUT - Update facility
 export async function PUT(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       id,
@@ -85,6 +92,8 @@ export async function PUT(request: NextRequest) {
 // DELETE - Delete facility
 export async function DELETE(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
 

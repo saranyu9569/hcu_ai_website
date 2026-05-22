@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const rows = await query('SELECT * FROM footer_links ORDER BY sort_order ASC, id ASC');
     return NextResponse.json(rows);
   } catch (error) {
@@ -13,6 +16,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const { name_th, name_en, href, sort_order, is_active } = body;
     const result = await query(

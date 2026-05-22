@@ -1,4 +1,5 @@
 import mysql, { Pool, PoolOptions } from 'mysql2/promise';
+import bcrypt from 'bcryptjs';
 
 type Env = {
   DB_HOST: string;
@@ -114,8 +115,11 @@ export async function getAllEvents() {
 
 // --- Basic Admin stubs to fix TS errors ---
 export async function authenticateAdmin(username: string, pass: string): Promise<any> {
-  const users = await query('SELECT * FROM admin_users WHERE username = ? AND password = ? LIMIT 1', [username, pass]);
-  return users.length > 0 ? users[0] : null;
+  const users = await query<any>('SELECT * FROM admin_users WHERE username = ? LIMIT 1', [username]);
+  if (users.length === 0) return null;
+  const user = users[0];
+  const valid = await bcrypt.compare(pass, user.password);
+  return valid ? user : null;
 }
 
 export async function createSession(userId: number, token: string, expiresAt: Date): Promise<boolean> {

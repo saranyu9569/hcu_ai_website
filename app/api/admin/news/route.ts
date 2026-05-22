@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 async function getCategoryId(name: string): Promise<number | null> {
   if (!name) return null;
@@ -17,6 +18,8 @@ async function getCategoryId(name: string): Promise<number | null> {
 
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const rows = await query(`
       SELECT n.*, cc.name_en AS category
       FROM news n
@@ -36,6 +39,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const { title_th, title_en, content_th, content_en, image_path, category, publish_date, is_active } = body;
 

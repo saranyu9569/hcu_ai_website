@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 // GET - Fetch education for a faculty member
 export async function GET(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { searchParams } = new URL(request.url);
     const facultyId = searchParams.get('facultyId');
 
@@ -33,6 +36,8 @@ export async function GET(request: NextRequest) {
 // POST - Create new education
 export async function POST(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       faculty_id,
@@ -63,6 +68,8 @@ export async function POST(request: NextRequest) {
 // PUT - Update education
 export async function PUT(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const body = await request.json();
     const {
       id,
@@ -92,6 +99,8 @@ export async function PUT(request: NextRequest) {
 // DELETE - Delete education
 export async function DELETE(request: NextRequest) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
 

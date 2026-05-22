@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
+import { requireAuth } from '@/lib/auth';
 
 export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { id } = await params;
     const body = await request.json();
     const { title_th, title_en, description_th, description_en, button_th, button_en, is_active } = body;
@@ -23,6 +26,8 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const authError = await requireAuth(request);
+    if (authError) return authError;
     const { id } = await params;
     await query('DELETE FROM quote WHERE id = ?', [id]);
     return NextResponse.json({ message: 'Quote deleted successfully' });
